@@ -25,14 +25,34 @@ export function CornerBouquet() {
       {!finale && collected > 0 && (
         <motion.div
           key="corner-bouquet"
-          className="pointer-events-none fixed bottom-0 left-2 z-30 hidden select-none md:block"
+          // xl only: below that the content column reaches the left edge and
+          // the bouquet would sit on top of what she's reading.
+          className="pointer-events-none fixed bottom-0 left-0 z-30 hidden select-none pb-6 pl-3 xl:block"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
           aria-hidden="true"
         >
-          <svg width="190" height="230" viewBox="-95 -40 190 230">
+          {/* Soft paper wash so the bouquet stays legible over whatever text
+              happens to be behind it */}
+          <div
+            aria-hidden="true"
+            className="absolute bottom-0 left-0 h-[300px] w-[300px]"
+            style={{
+              background:
+                "radial-gradient(circle at 32% 78%, rgba(250,243,239,0.92) 30%, rgba(250,243,239,0.55) 55%, transparent 72%)",
+            }}
+          />
+
+          {/* viewBox is wider than the stems need: the outermost flower swings
+              past x=-100 once the fan opens, and a tighter box clips it. */}
+          <svg
+            width="208"
+            height="232"
+            viewBox="-112 -48 224 250"
+            className="relative"
+          >
             <g>
               {Array.from({ length: collected }, (_, i) => {
                 const angle = -spread / 2 + step * i;
@@ -81,7 +101,7 @@ export function CornerBouquet() {
             />
           </svg>
 
-          <p className="mt-1 pl-4 font-[family-name:var(--font-hand)] text-lg text-[#a8556c]">
+          <p className="relative mt-1 pl-5 font-[family-name:var(--font-hand)] text-lg text-[#a8556c]">
             {collected} of {TOTAL} picked
           </p>
         </motion.div>
