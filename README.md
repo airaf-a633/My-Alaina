@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A Herbarium of Us — for Alaina
 
-## Getting Started
+A scroll-through keepsake site. The conceit is a book of pressed flowers: every
+memory is a specimen taped to the page, and a bouquet in the corner gains one
+flower for each memory she scrolls past. At the last section the finished
+bouquet is handed over.
 
-First, run the development server:
+## Running it
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing it
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**`content.ts` is the only file you need to touch.** Every word she reads lives
+there. Anything marked `PLACEHOLDER` is my writing, not yours — those need
+replacing before you send her the link.
 
-## Learn More
+`media.ts` lists the photos and videos. It's already filled in from
+`/public/images`.
 
-To learn more about Next.js, take a look at the following resources:
+## The page, in order
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Section   | What it is                                                 |
+| --------- | ---------------------------------------------------------- |
+| Hero      | Title card with her name and a drifting petal or two        |
+| Letter    | Your opening note, taped to the page                        |
+| Memories  | Four specimens. **Each one adds a flower to the bouquet.**  |
+| Interlude | "Teri harr ada qatilana" — the one dark screen on the page  |
+| Clips     | Your videos. Autoplay muted, tap the speaker for sound      |
+| Gallery   | All 43 photos in a masonry, nothing cropped                 |
+| Reasons   | Tap a flower, a reason opens inside                         |
+| Wallet    | The childhood photo, and the line about your daughter       |
+| Closing   | The full bouquet, and your signoff                          |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying it
 
-## Deploy on Vercel
+Easiest is Vercel — same company that makes Next.js, and the free tier covers
+this comfortably.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Follow the prompts and it gives you a URL you can send her.
+
+One thing to know: the site will be **publicly reachable** by anyone with the
+link. It won't be meaningfully indexed by Google, but it isn't private either.
+If that matters, Vercel's dashboard has a password-protection setting, or you
+can keep it local and show her on your laptop.
+
+## Details worth knowing
+
+- **Mobile first.** Responsive down to 375px and checked for horizontal
+  overflow. Photos are served at phone-appropriate sizes — a 940 KB original
+  goes out as roughly 77 KB.
+- **Reduced motion is respected.** If she has "reduce motion" on in her phone
+  settings, petals disappear, reveals become simple fades, and videos show
+  controls instead of autoplaying.
+- **Videos pause off-screen** so they don't drain her battery or data.
+- **It still reads without JavaScript**, just without the animation.
