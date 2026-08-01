@@ -1,3 +1,4 @@
+import { InterludeAudio } from "@/components/InterludeAudio";
 import { Reveal } from "@/components/Reveal";
 import { content } from "@/content";
 
@@ -38,6 +39,8 @@ export function Interlude() {
           {interlude.meaning}
         </p>
       </Reveal>
+
+      <InterludeAudio />
     </section>
   );
 }

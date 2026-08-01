@@ -34,24 +34,21 @@ export function CornerBouquet() {
           transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
           aria-hidden="true"
         >
-          {/* Soft paper wash so the bouquet stays legible over whatever text
-              happens to be behind it */}
-          <div
-            aria-hidden="true"
-            className="absolute bottom-0 left-0 h-[300px] w-[300px]"
-            style={{
-              background:
-                "radial-gradient(circle at 32% 78%, rgba(250,243,239,0.92) 30%, rgba(250,243,239,0.55) 55%, transparent 72%)",
-            }}
-          />
+          {/* A shadow rather than a paper-coloured wash: this thing floats over
+              the blush sections *and* the dark interlude, and any tinted plate
+              behind it reads as a bright blob on one of the two.
 
-          {/* viewBox is wider than the stems need: the outermost flower swings
+              viewBox is wider than the stems need: the outermost flower swings
               past x=-100 once the fan opens, and a tighter box clips it. */}
           <svg
             width="208"
             height="232"
             viewBox="-112 -48 224 250"
             className="relative"
+            style={{
+              filter:
+                "drop-shadow(0 1px 1px rgba(59,43,51,0.18)) drop-shadow(0 6px 14px rgba(59,43,51,0.22))",
+            }}
           >
             <g>
               {Array.from({ length: collected }, (_, i) => {
@@ -101,7 +98,10 @@ export function CornerBouquet() {
             />
           </svg>
 
-          <p className="relative mt-1 pl-5 font-[family-name:var(--font-hand)] text-lg text-[#a8556c]">
+          <p
+            className="relative mt-1 pl-5 font-[family-name:var(--font-hand)] text-lg text-[#c9748a]"
+            style={{ textShadow: "0 1px 3px rgba(59,43,51,0.35)" }}
+          >
             {collected} of {TOTAL} picked
           </p>
         </motion.div>

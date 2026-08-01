@@ -61,4 +61,14 @@ can keep it local and show her on your laptop.
   settings, petals disappear, reveals become simple fades, and videos show
   controls instead of autoplaying.
 - **Videos pause off-screen** so they don't drain her battery or data.
+- **The song plays once, in full**, when she reaches the *Teri harr ada
+  qatilana* screen, and never restarts if she scrolls back. Swap the track by
+  replacing `public/audio/qatilana.mp3`.
+
+  Browsers refuse to start audio on a page nobody has touched yet — that's a
+  platform rule no code gets around. So the first time she taps *anything*
+  (the "Start here" link, a flower, a clip), the player is quietly primed, and
+  the song then starts on its own. Only if she scrolls the entire way without a
+  single tap does a small "Tap to hear it" button appear instead. A "Stop"
+  control sits in the corner while it plays.
 - **It still reads without JavaScript**, just without the animation.

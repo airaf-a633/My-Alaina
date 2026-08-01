@@ -85,6 +85,11 @@ export const content = {
     lang: "ur-Latn",
     meaning:
       "Every single thing you do is lethal. I look at you and I lose myself — every time, like it's the first time.",
+    // Plays once, all the way through, when she reaches this screen.
+    audio: "/audio/qatilana.mp3",
+    // Only shown if her browser refuses to start audio on its own.
+    audioPrompt: "Tap to hear it",
+    audioStop: "Stop",
   },
 
   clips: {
