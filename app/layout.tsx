@@ -26,8 +26,33 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  // Absolute URLs for the preview card. Change this if the site moves.
+  metadataBase: new URL(content.meta.url),
   title: content.meta.title,
   description: content.meta.description,
+  openGraph: {
+    type: "website",
+    title: content.meta.title,
+    description: content.meta.description,
+    siteName: content.meta.title,
+    url: content.meta.url,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        // The card shows the title card, not a photo — no point spoiling the
+        // surprise in a chat preview before she's even opened it.
+        alt: content.meta.title,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: content.meta.title,
+    description: content.meta.description,
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
