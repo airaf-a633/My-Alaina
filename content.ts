@@ -53,11 +53,12 @@ export const content = {
       image: "/images/moment-13.jpg",
     },
     {
-      title: "The first time it went quiet",
-      date: "somewhere near the start",
-      place: "your side of the room",
-      note: "Neither of us said anything for a long time and it wasn't awkward once. I remember thinking that's the part nobody warns you about — how loud it is being comfortable with someone.",
-      caption: "neither of us moved",
+      // The only hard date on the page, and the one that earns it.
+      title: "The day we both finally said it",
+      date: "8 October",
+      place: "both of us, at the same time",
+      note: "We'd been circling it for so long, and then it just came out — from both sides, almost in the same breath. I remember the relief more than anything. Every date I care about since gets measured from that one.",
+      caption: "8th of October",
       image: "/images/moment-06.jpg",
     },
     {
